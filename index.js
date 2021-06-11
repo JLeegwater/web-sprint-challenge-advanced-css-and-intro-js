@@ -235,7 +235,7 @@ There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is current
  Example, if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
 function getArtistByIndex(arr,num) {
-  return `the artist at index ${num} is ${arr[num].name}`;
+  return `the artist at index ${num} is ${arr[num].name}`;  //could use `is ${arr[num]["name"]}`; too, but i like dot notation
 }  
 //console.log(getArtistByIndex(artists,0));
 
@@ -252,13 +252,14 @@ function get20s(arr){
   const newArr = [];          //create a new array for the return
   for (let i = 0; i<arr.length; i++){
     const tempArr = arr[i].years.split(" - ");          //split the years string by " - " so the tempArray only has the data i want
-    tempArr[0] = parseInt(tempArr[0]);                  //turn the year strings into numbers
-    tempArr[1] = parseInt(tempArr[1]);
-    if(tempArr[0] >= 1900 && tempArr[0]<2000 &&tempArr[1] >= 1900 && tempArr[1]<2000 ){   //if both birth and death years are between 1900 and 2000 then push their name
-      newArr.push(arr[i].name);
+    tempArr[0] = parseInt(tempArr[0]);                  //turn the birth year string into numbers
+    tempArr[1] = parseInt(tempArr[1]);                  //turn the death year string into numbers
+    if(tempArr[0] >= 1900 && tempArr[0]<2000            //compare birth year to make sure its within 1900 and 2000
+     &&tempArr[1] >= 1900 && tempArr[1]<2000 ){         //compare death year to make sure its within 1900 and 2000
+      newArr.push(arr[i].name);                         //if both birth and death years are between 1900 and 2000 then push their name ontto the return array
     }
   }
-  return newArr;
+  return newArr;                                        //return array of names
 }
 
 //console.log(get20s(artists));
@@ -273,8 +274,8 @@ function get20s(arr){
  For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
 function removeArtist(arr,num){
-   arr.splice(num,1);
-   return arr.length;
+   arr.splice(num,1);             //delete on object at index of num
+   return arr.length;             //return the length of the changed array to confirm it was a success 
 }
 //console.log(removeArtist(artists,0));
 
@@ -303,7 +304,7 @@ function addArtist(arr){
     nationality: "American",
     bio: "lorem ipsum",
   }  
-  arr.push(tempObj);
+  arr.push(tempObj);        //put the new object in the back of the array
   return arr;
   }
 
@@ -317,11 +318,10 @@ Use lotsOfArt to do the following:
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
 function lotsOfArt(arr){
-  const tempArr = [];
-  for(let i = 0;i<arr.length;i++)
-  {
-    if(arr[i]["paintings"]>100){      //used [] notation becasue to show that i know how to use it and ive been using dot notation the rest of the project
-      tempArr.push(arr[i]["name"]);
+  const tempArr = [];                 //make a temp array so we can return all the names instead of just one name
+  for(let i = 0;i<arr.length;i++){
+    if(arr[i]["paintings"]>100){      //used [] notation to show that i know how to use it and ive been using dot notation the rest of the project
+      tempArr.push(arr[i]["name"]);   //push the name from the item at i to the tempArr for return
     }
   }
   return tempArr;
