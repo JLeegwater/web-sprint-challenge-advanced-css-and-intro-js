@@ -249,13 +249,13 @@ Example born in 1901 and died in 1959 - included -- born in 1889 and died in 192
 If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 
 function get20s(arr){
-  const newArr = [];
+  const newArr = [];          //create a new array for the return
   for (let i = 0; i<arr.length; i++){
-    const tempArr = arr[i].years.split(" - ");
-    tempArr[0] = parseInt(tempArr[0]);
+    const tempArr = arr[i].years.split(" - ");          //split the years string by " - " so the tempArray only has the data i want
+    tempArr[0] = parseInt(tempArr[0]);                  //turn the year strings into numbers
     tempArr[1] = parseInt(tempArr[1]);
-    if(tempArr[0] >= 1900 && tempArr[0]<2000 &&tempArr[1] >= 1900 && tempArr[1]<2000 ){
-      newArr.push(arr[i].name)
+    if(tempArr[0] >= 1900 && tempArr[0]<2000 &&tempArr[1] >= 1900 && tempArr[1]<2000 ){   //if both birth and death years are between 1900 and 2000 then push their name
+      newArr.push(arr[i].name);
     }
   }
   return newArr;
@@ -320,7 +320,7 @@ function lotsOfArt(arr){
   const tempArr = [];
   for(let i = 0;i<arr.length;i++)
   {
-    if(arr[i]["paintings"]>100){
+    if(arr[i]["paintings"]>100){      //used [] notation becasue to show that i know how to use it and ive been using dot notation the rest of the project
       tempArr.push(arr[i]["name"]);
     }
   }

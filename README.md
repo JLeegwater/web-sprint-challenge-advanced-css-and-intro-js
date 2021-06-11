@@ -23,9 +23,13 @@ Commit your code regularly and meaningfully.
 Please answer the following questions below, you may edit the readme file to include your answers below the question.
 
 1. How would you describe acessibility on the web to someone new to programming?
+    accessibility is how we cater to the less fortunate. people who are blind are able to use the screen reader and navigate websites it they are set up semantically. to make sure your website is usable by the less fortunate we need to make sure we use the most semantic tags possible. also we need to make sure we ad descriptions so our imgs with the alt attribute. we also need to keep in mind colorblindness and use themes that dont make them not able to see the text.
 2. Talk about 3 different things you can do to ensure your website is accessible. 
+    use the most semantic tags as possible, use the alt text for images, use color with care. we also need to use good naming when naming links.
 3. How would you explain the concept of a variable to someone new to programming?
+    a variable is just a box we store something in. we can put numbers in them or strings or anything we like. each box has its own name so we can keep track of what we put in there. if we use "var" to make a variable, they are function-scoped and will be able to be used anywhere in your program. this isnt good. "let" is block-scoped and can be used in the block it was made in, or any block make in the block it was created in.
 4. What is the purpose of using functions in code?
+    they are there to keep code clean and not have to retype things over and over. they are created do do a task on given data that is meant to be done multiple times with different data.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
